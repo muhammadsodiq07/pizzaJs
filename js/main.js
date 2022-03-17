@@ -54,7 +54,7 @@ for (let i = 0; i < pizzas.length; i++) {
 }
 
 
-let arrShopNew = [];
+let arrNew = [];
 let arrPrice = [];
 const elBtnAdd = document.querySelectorAll('.btn');
 const elListCart = document.querySelector('.cart__list')
@@ -69,7 +69,7 @@ let total = 0;
 
 for (let i = 0; i < elBtnAdd.length; i++) {
   elBtnAdd[i].addEventListener('click', () => {
-    arrShopNew[arrShopNew.length] = pizzas[i];
+    arrNew[arrNew.length] = pizzas[i];
     arrPrice[arrPrice.length] = pizzas[i].price;
     
     sub += pizzas[i].price;
@@ -102,7 +102,7 @@ for (let i = 0; i < elBtnAdd.length; i++) {
     console.log(elTotal);
     let del = document.querySelectorAll(".minus")
 
-    for (let i = 0; i < arrShopNew.length; i++){
+    for (let i = 0; i < arrNew.length; i++){
       del[i].addEventListener('click', (e) => {
     e.target.parentNode.parentNode.remove(); 
     
@@ -128,7 +128,7 @@ for (let i = 0; i < elBtnAdd.length; i++) {
   })
 }
 
-console.log(arrShopNew);
+console.log(arrNew);
 
 
 
