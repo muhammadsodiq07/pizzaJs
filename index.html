@@ -5,19 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lesson</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link
       href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/flexboxgrid.min.css" />
     <link
       rel="stylesheet"
       href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
     />
     <link rel="stylesheet" href="css/main.min.css" />
   </head>
-
   <body>
+
+    <div class="pizza">
+      <div class="container">
+        <div class="row justify-content-evenly pt-5">
+          <div class="pizza__box">
+            <h1 class="menu">To Go Menu</h1>
+            <ul class="pizza__list">
+            </ul>
+          </div>
+          <div class="cart">
+            <h2 class="cart__name">your cart</h2>
+            <ul class="cart__list">
+            </ul>
+            <div class="price d-flex align-items-center">
+                <div class="row d-flex">
+                    <p class="price__title">subtotal: <span class="price__amount title-pr">$0</span></p>
+                </div>
+                <div class="wra d-flex">
+                    <p class="price__title tax">tax: <span class="price__amount tax-pr">$0</span></p>
+                </div>
+                <div class="wrap d-flex">
+                    <p class="price__title total">total: <span class="price__amount total-pr">$0</span> </p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <template id="pizza-item-template">
+          <li class="menu__item pizza">
+              <img class="pizza__img" src="" alt="pizza">
+              <div class="pizza__desc">
+                  <p class="pizza__p"></p>
+                  <span class="pizza__price">$</span>
+                  <button class="pizza__btn">Add to Cart</button>
+              </div>
+          </li>
+      </template>
+      </div>
+    </div>
+
+
     <script src="js/main.js"></script>
   </body>
 </html>
