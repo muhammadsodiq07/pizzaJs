@@ -24,18 +24,7 @@ p {
   width: 450px;
   height: 620px;
   border-radius: 20px;
-  overflow-y: scroll;
-}
-.pizza__box::-webkit-scrollbar {
-  width: 5px !important; 
-}
-.pizza__box::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
-}
-
-.pizza__box::-webkit-scrollbar-thumb {
-  background-color: darkgrey !important;
-  outline: 1px solid slategrey !important;
+  overflow: hidden;
 }
 
 
@@ -43,6 +32,19 @@ p {
   list-style: none;
   padding-top: 30px !important;
   padding-left: 35px !important;
+  height: 550px;
+  overflow: scroll;
+}
+.pizza__list::-webkit-scrollbar {
+  width: 5px !important; 
+}
+.pizza__list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+.pizza__list::-webkit-scrollbar-thumb {
+  background-color: #FFE5C4 !important;
+  outline: 1px solid slategrey !important;
 }
 
 
@@ -85,10 +87,16 @@ p {
   top: 13px;
   padding: 2px 18px;
   font-weight: 700;
+  transition: all 0.2s ease !important;
   background-color: #7B4AFF;
   color: #fff;
   border-radius: 10px;
+  
+  &:hover {
+    background-color: #e0e8ff;
+  }
 }
+
 
 
 
@@ -130,7 +138,7 @@ p {
 }
 
 .cart .cart__list::-webkit-scrollbar-thumb {
-  background-color: darkgrey !important;
+  background-color: #FFE5C4 !important;
   outline: 1px solid slategrey !important;
 }
 
@@ -141,6 +149,8 @@ p {
   width: 380px;
   margin-left: 30px !important;
   border-radius: 20px;
+}
+.animation {
   animation: anipizza 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 .bgcolor2 {
@@ -176,7 +186,6 @@ p {
   position: relative;
   bottom: -12px;
   height: 55px !important;
-  // width: 100% !important;
   display: flex;
   justify-content: space-evenly;
   background: #ffe5c4;
@@ -202,12 +211,14 @@ p {
   position: absolute;
   right: 0;
   bottom: 35px;
-  font-size: 24px;
-  line-height: 18px;
-  padding: 5px 10px;
-  border-radius: 30px;
-  background-color: #fcd6a6;
+  background-color: transparent;
   border: 1px solid transparent;
+}
+.bx-minus {
+  font-size: 24px;
+  padding: 5px;
+  background-color: #ffc4c4;
+  border-radius: 50%;
 }
 .pizza__number {
   position: absolute;
@@ -220,11 +231,10 @@ p {
   border: 1px solid transparent;
   background-color: #7B4AFF;
 }
- 
 @keyframes anipizza {
   0% {
-    -webkit-transform: translateY(50px);
-            transform: translateY(50px);
+    -webkit-transform: translateX(-50px);
+            transform: translateX(-50px);
     opacity: 0;
   }
   100% {

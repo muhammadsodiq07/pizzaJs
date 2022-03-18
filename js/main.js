@@ -41,7 +41,7 @@ for (let i = 0; i < pizzas.length; i++) {
     <p class="pizza__name">
       ${pizzas[i].desc}
       </p>
-      <p class="pizza__price">${pizzas[i].price}</p>
+      <p class="pizza__price">$${pizzas[i].price}</p>
       <div class="pizza__btnbox">
       <button class="btn pizza__btn" id = ${pizzas[i].id}>
       Add to Cart
@@ -76,18 +76,20 @@ for (let i = 0; i < elBtnAdd.length; i++) {
     tax = sub * 10 / 100;
     total = (sub + tax);
 
-    let li2 = document.createElement('li');
-    li2.classList.add("cart__item");
-    li2.innerHTML = `<div class="bgcolor bgcolor2 d-flex mb-5">
+    let li = document.createElement('li');
+    li.className =("cart__item animation");
+    li.innerHTML = `<div class="bgcolor bgcolor2 d-flex mb-5">
     <div class="pizza__imgdiv">
-    <img class="pizza__img" src="${pizzas[i].imageUrl}" alt="">
+    <img class="pizza__img" src="${arrNew[i].imageUrl}" alt="">
       </div>
       <div class="pizza__pl">
       <p class="pizza__name">
-        ${pizzas[i].desc}
+        ${arrNew[i].desc}
         </p>
-        <p class="pizza__price">${pizzas[i].price}</p>
-        <button class="minus">-</button>
+        <p class="pizza__price">$${arrNew[i].price}</p>
+        <button class="minus"  onclick='removeItem(${i})'>
+        <i class='bx bx-minus'></i>
+      </button>
         <button class="pizza__number">1</button>
         </div>
         </div>
@@ -96,26 +98,48 @@ for (let i = 0; i < elBtnAdd.length; i++) {
     elTax.textContent = tax.toFixed(2);
     elTotal.textContent = total.toFixed(2);
 
-    elListCart.appendChild(li2);
-    console.log(elSub);
-    console.log(elTax);
-    console.log(elTotal);
-    let del = document.querySelectorAll(".minus")
+    elListCart.appendChild(li);
+  })
+}
 
-    for (let i = 0; i < arrNew.length; i++){
-      del[i].addEventListener('click', (e) => {
-    e.target.parentNode.parentNode.remove(); 
+function removeItem(index) {
+  let newArrRemove = [];
+
+  for (let i = 0; i < arrNew.length; i++) {
+    if (index != i) {
+      newArrRemove.push(arrNew[i]);
+    }
     
-    // sub -= pizzas[i].price;
-    // elSub.textContent = sub.toFixed(2);
+  }
+  
+  arrNew = newArrRemove;
 
-    // tax = sub % 10 / 100;
-    // elTax.textContent = tax.toFixed(2);
+  elListCart.innerHTML = "";
+  sub = 0;
+  tex = 0;
+  total = 0;
 
-    // total = (sub + tax);
-    // elTotal.textContent = total.toFixed(2);
-    sub -= pizzas[i].price;
-    console.log(sub);
+  for (let i = 0; i < arrNew.length; i++) {
+    let li = document.createElement("li");
+    li.className =("cart__item");
+    li.innerHTML = `<div class="bgcolor bgcolor2 d-flex mb-5">
+    <div class="pizza__imgdiv">
+    <img class="pizza__img" src="${arrNew[i].imageUrl}" alt="">
+      </div>
+      <div class="pizza__pl">
+      <p class="pizza__name">
+        ${arrNew[i].desc}
+        </p>
+        <p class="pizza__price">$${arrNew[i].price}</p>
+        <button class="minus"  onclick='removeItem(${i})'>
+        <i class='bx bx-minus'></i>
+        </button>
+        <button class="pizza__number">1</button>
+        </div>
+        </div>
+    `;
+    
+    sub += arrNew[i].price;
     elSub.textContent = sub.toFixed(2);
 
     tax = sub % 10 / 100;
@@ -123,12 +147,39 @@ for (let i = 0; i < elBtnAdd.length; i++) {
     
     total = (sub + tax);
     elTotal.textContent = total.toFixed(2);
-  });
+
+    elListCart.appendChild(li);
+  }
+  if (arrNew.length == 0 ) {
+    sub == 0;
+    elSub.textContent = sub.toFixed(2);
+    total == 0;
+    elTotal.textContent = total.toFixed(2);
+    tex == 0;
+    elTax.textContent = tex.toFixed(2);
+  }
 }
-  })
-}
-
-console.log(arrNew);
 
 
 
+
+
+// let arr = [5,2,1,1,3,5,5,2,2,4];
+
+// let b = [];
+// let count = arr.length;
+
+// for(let i = 0; i < count; i++) {
+//   let k = [];
+//   let f = [];
+//   for (let j = 0; j , arr.length; j++) {
+//     if (arr[0] == arr[j]) {
+//       k.push(arr[j]);
+//     }else {
+//       f.push(arr[j]);
+//     }
+//   }
+//   arr = f;
+//   if (k != "") b.push(k);
+// }
+// console.log(b);
