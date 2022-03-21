@@ -8,11 +8,11 @@ p {
   margin: 0 !important;
 }
 .pizza {
-  background-image: url('../../images/bg.jpg');
+  background-image: url('../images/bgimg.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 100vh;
+  height: 100%;
 }
 .menu {
   padding-left: 35px;
@@ -207,19 +207,7 @@ p {
 .dollar__sign {
   font-weight: 700;
 }
-.minus {
-  position: absolute;
-  right: 0;
-  bottom: 35px;
-  background-color: transparent;
-  border: 1px solid transparent;
-}
-.bx-minus {
-  font-size: 24px;
-  padding: 5px;
-  background-color: #ffc4c4;
-  border-radius: 50%;
-}
+
 .pizza__number {
   position: absolute;
   left: 5px;
@@ -231,10 +219,44 @@ p {
   border: 1px solid transparent;
   background-color: #7B4AFF;
 }
+
+
+.count-btn {
+  position: absolute;
+  left: 10px;
+  top: 60px;
+  padding: 5px 10px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background-color: #906df1;
+  color: #fff;
+}
+.btndiv {
+  position: absolute;
+  right: 0;
+}
+.push-btn {
+  padding: 2px 6px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background-color: rgb(22, 194, 22);
+  color: #fff;
+}
+.remove-btn {
+  padding: 2px 8px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  color: #fff;
+  background-color: rgb(255, 8, 8);
+}
+
+
+
+
 @keyframes anipizza {
   0% {
-    -webkit-transform: translateX(-50px);
-            transform: translateX(-50px);
+    -webkit-transform: translateX(-20px);
+            transform: translateX(-20px);
     opacity: 0;
   }
   100% {
@@ -243,3 +265,5 @@ p {
     opacity: 1;
   }
 }
+
+
