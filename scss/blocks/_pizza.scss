@@ -150,9 +150,7 @@ p {
   margin-left: 30px !important;
   border-radius: 20px;
 }
-.animation {
-  animation: anipizza 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-}
+
 .bgcolor2 {
   background: #e0e8ff;
 } 
@@ -250,20 +248,5 @@ p {
   background-color: rgb(255, 8, 8);
 }
 
-
-
-
-@keyframes anipizza {
-  0% {
-    -webkit-transform: translateX(-20px);
-            transform: translateX(-20px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 1;
-  }
-}
 
 
